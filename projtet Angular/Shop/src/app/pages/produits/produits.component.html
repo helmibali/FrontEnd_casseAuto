@@ -1,0 +1,48 @@
+<app-navbar></app-navbar>
+<div class="entete">
+  <h1 class="text-center mt-5">Nos Produits</h1>
+<div class="ajouter mt-5"><a class="btn btn-primary" routerLink="/ajouter"><i class="fa fa-plus"></i>&nbsp; Ajouter</a></div>
+</div>
+
+<!-- tableau de Produits -->
+
+<div class="container">
+    <div class="card shadow mb-4">
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">nom</th>
+        <th scope="col">prix</th>
+        <th scope="col">date création</th>
+        <th scope="col">categorie</th>
+        <th scope="col">modele</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let produit of produits">
+        <td>{{produit.idProduit}}</td>
+        <td>{{produit.nomProduit}}</td>
+        <td>{{produit.prixProduit}}</td>
+        <td>{{produit.dateCreation|date:'dd/MM/yyyy'}}</td> 
+        <td>{{ produit.categorie.nomCategorie }}</td>
+        <td>
+          <ul  *ngFor="let modele of produit.modeles">
+            <li>
+                {{ modele.libelleModele }}  {{modele.marque.libelleMarque}}
+            </li>
+          </ul>
+        </td>
+       
+        <td><a *ngIf="authService.isAdmin()" class="btn btn-danger" (click)="supprimerProduit(produit)">
+          <i class="fa fa-trash">&nbsp;</i>Supprimer</a></td>
+        <td><a *ngIf="authService.isAdmin()" class="btn btn-info" [routerLink]="['/updateProduit',produit.idProduit]">
+          <i class="fa fa-edit"></i>&nbsp;Modifier</a>
+        </td>
+    </tr>
+  </tbody>
+</table>
+   
+  
+</div>
+</div>
