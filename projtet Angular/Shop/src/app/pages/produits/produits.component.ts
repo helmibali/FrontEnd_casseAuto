@@ -29,10 +29,9 @@ export class ProduitsComponent implements OnInit {
   }
 
    supprimerProduit(p:Produit){
-    //supprimer le produit
+
     let conf = confirm("Etes vous sur ?");
     if (conf) 
-   // console.log(p);
     this.produitService.supprimerProduit(p.idProduit).subscribe(()=>{
       console.log("produit supprimé");
     });

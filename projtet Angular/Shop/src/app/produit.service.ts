@@ -13,7 +13,7 @@ const httpOPtions = {
   providedIn: 'root'
 })
 export class ProduitService {
-//apiURL : string =  'http://localhost:8080/produits/api';
+
 apiURL : string =  'http://localhost:8085/api/produits';
 produits :Produit[];
  produit :Produit;
@@ -22,11 +22,7 @@ produits :Produit[];
  public categorie:Categorie;
 
   constructor(private http : HttpClient) { 
-    // this.produits =[
-    //   { idProduit : 1, nomProduit : "PC Asus", prixProduit : 3000.600, dateCreation: new Date("01/14/2011")},
-    //   { idProduit : 2, nomProduit : "Imprimante Epson", prixProduit : 450, dateCreation : new Date("12/17/2010")},
-    //   { idProduit : 3, nomProduit :"Tablette Samsung", prixProduit : 900.123, dateCreation : new Date("02/20/2020")}
-    //       ];
+   
   }
 listeProduits():Observable<Produit[]>{
   
@@ -35,7 +31,7 @@ listeProduits():Observable<Produit[]>{
 
 
 ajouterProduit(prod: Produit):Observable<Produit>{
- return this.http.post<Produit>(this.apiURL, prod, httpOPtions);
+ return this.http.post<Produit>('http://localhost:8085/api/produit/add', prod, httpOPtions);
 }
 supprimerProduit(id: number){
 

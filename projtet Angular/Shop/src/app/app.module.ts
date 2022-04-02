@@ -15,6 +15,11 @@ import { HttpClientModule} from '@angular/common/http';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { UtilisateursComponent } from './pages/utilisateurs/utilisateurs.component';
 import { PieceComponent } from './pages/piece/piece.component';
+import { InscriptionComponent } from './pages/inscription/inscription.component';
+import { ListeCategorieComponent } from './pages/categorie/liste-categorie/liste-categorie.component';
+import { UpdateCategorieComponent } from './pages/categorie/update-categorie/update-categorie.component';
+import { AddCategorieComponent } from './pages/categorie/add-categorie/add-categorie.component';
+
 
 
 @NgModule({
@@ -30,6 +35,11 @@ import { PieceComponent } from './pages/piece/piece.component';
     ForbiddenComponent,
     UtilisateursComponent,
     PieceComponent,
+    InscriptionComponent,
+    ListeCategorieComponent,
+    UpdateCategorieComponent,
+    AddCategorieComponent,
+    
     
   ],
   imports: [

@@ -1,0 +1,35 @@
+<app-navbar></app-navbar>
+<div class="entete">
+  <h1 class="text-center mt-5">Catégories</h1>
+<div class="ajouter mt-5"><a class="btn btn-primary" routerLink="/ajouter-categorie"><i class="fa fa-plus"></i>&nbsp; Ajouter</a></div>
+</div>
+
+<!-- tableau de Produits -->
+
+<div class="container">
+    <div class="card shadow mb-4">
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Libellé</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let c of categories">
+        <td>{{c.id}}</td>
+        <td>{{c.nomCategorie}}</td>
+        <td>{{c.descriptionCategorie}}</td>
+        <td><a *ngIf="authService.isAdmin()" class="btn btn-danger" (click)="supprimerCategorie(c)">
+          <i class="fa fa-trash">&nbsp;</i>Supprimer</a></td>
+        <td><a *ngIf="authService.isAdmin()" class="btn btn-info"  [routerLink]="['/updateCategorie',c.id]" >
+          <i class="fa fa-edit"></i>&nbsp;Modifier</a>
+        </td>
+    </tr>
+  </tbody>
+</table>
+   
+  
+</div>
+</div>
