@@ -16,27 +16,13 @@
 <li class="nav-item">
 <a class="nav-link"  routerLink="/">Nos Produits</a>
 </li>
-<!-- <li class="nav-item">
-    <a *ngIf="authService.isloggedIn"  class="nav-link"  routerLink="/produits">Gestion Produits</a>
-    </li> -->
-    <!-- <li class="nav-item">
-        <a *ngIf="authService.isloggedIn"  class="nav-link"  routerLink="/pieces">Gestion Pieces Auto</a>
-        </li> -->
-    <!-- <li class="nav-item">
-        <a *ngIf="authService.isAdmin()"  class="nav-link"  routerLink="/utilisateurs">Utilisateurs</a>
-        </li> -->
-        
 
 </ul>
 <ul class="navbar-nav ml-auto" >
-    <!-- <li><a class="nav-link">{{ authService.loggedUser}}</a></li> -->
     <li><a *ngIf="!authService.isloggedIn" class="nav-link" routerLink="/inscription">
         <i class="fa fa-user-plus"></i> &nbsp;Inscription</a></li>
     <li><a *ngIf="!authService.isloggedIn" class="nav-link" routerLink="/login">
-        <i class="fa fa-user"></i> &nbsp;Connexion</a></li>
-    <!-- <li><a *ngIf="authService.isloggedIn" (click)="logout()" class="nav-link" routerLink="/login">
-        <i class="fa fa-user"></i> &nbsp;deconnexion</a></li> -->
-        
+        <i class="fa fa-user"></i> &nbsp;Connexion</a></li>   
         <div *ngIf="authService.isloggedIn" class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {{ authService.loggedUser}}
@@ -57,6 +43,11 @@
                         <i class="fa fa-tags" aria-hidden="true"></i> Gestion des categories
                     </a>
                     </button>
+                    <button class="dropdown-item" type="button">
+                        <a *ngIf="authService.isAdmin()"  class="user_options"  routerLink="/ajouter-marque">
+                            <i class="fa fa-tags" aria-hidden="true"></i> Gestion des marques
+                        </a>
+                        </button>
 
               <button class="dropdown-item" type="button">
                 <a *ngIf="authService.isloggedIn" (click)="logout()" class="user_options" routerLink="/login">
@@ -65,9 +56,6 @@
                 
             </div>
           </div>
-        
-        
-
 </ul>
 </nav>
 </body>

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { MatDialogModule,MatDialogRef,MAT_DIALOG_DATA  } from '@angular/material/dialog';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './ui/navbar/navbar.component';
@@ -19,6 +19,7 @@ import { InscriptionComponent } from './pages/inscription/inscription.component'
 import { ListeCategorieComponent } from './pages/categorie/liste-categorie/liste-categorie.component';
 import { UpdateCategorieComponent } from './pages/categorie/update-categorie/update-categorie.component';
 import { AddCategorieComponent } from './pages/categorie/add-categorie/add-categorie.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -39,6 +40,9 @@ import { AddCategorieComponent } from './pages/categorie/add-categorie/add-categ
     ListeCategorieComponent,
     UpdateCategorieComponent,
     AddCategorieComponent,
+   
+   
+   
     
     
   ],
@@ -46,9 +50,13 @@ import { AddCategorieComponent } from './pages/categorie/add-categorie/add-categ
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+
+  providers: [{ provide: MAT_DIALOG_DATA, useValue: {} ,}],
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }
